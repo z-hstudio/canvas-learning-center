@@ -2,7 +2,7 @@
 
 ## Unsigned packages
 
-Version 0.2.16 is an `UNSIGNED-CANARY`. The macOS package is not Apple-notarized,
+Version 0.2.17 is an `UNSIGNED-CANARY`. The macOS package is not Apple-notarized,
 and the Windows MSI does not have a trusted Microsoft code-signing identity.
 Gatekeeper or SmartScreen may warn or block it.
 
@@ -27,9 +27,11 @@ a promise that every Canvas school is supported.
 
 ## Platform acceptance
 
-The macOS 0.2.16 package has been installed and checked locally. Windows builds
-run the test suite and packaging checks in Windows CI. A clean Windows 11 device
-acceptance test and a separate Intel Mac installation test remain outstanding.
+The 0.2.17 course-loading fixes were checked locally on macOS using authorized
+live UTS data: all five selected courses and all 34 module details were visible.
+Windows builds run the test suite and packaging checks in Windows CI. A clean
+Windows 11 device acceptance test, visual confirmation that background tasks do
+not flash windows, and a separate Intel Mac installation test remain outstanding.
 
 ## Canvas permissions
 

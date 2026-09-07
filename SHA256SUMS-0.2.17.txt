@@ -1,0 +1,10 @@
+8d721fc8052ea98d08b05fe2547211e6186eb8ab9abd638d3cc870cece5871f2  CanvasLearningCenter-0.2.17-Windows-en-release-evidence.zip
+9c43c31d1c548236e170a4029e1239cf6003620d752b885a7b596c69e2362aa9  CanvasLearningCenter-0.2.17-Windows-x64-en-UNSIGNED-CANARY.msi
+50211385767baf9ca687764d153306df5c8cff2e30ab6a14ca5fb592d2b3ff16  CanvasLearningCenter-0.2.17-Windows-x64-zh-CN-UNSIGNED-CANARY.msi
+bb0a5a5a32a098499d8aec662a2f9581f7096bd4e05232c3dc09ec32718ceb69  CanvasLearningCenter-0.2.17-Windows-zh-CN-release-evidence.zip
+a26fb3c57dbc394370787171f9b7510168eb4b7feca426bab3023d973a8b710b  CanvasLearningCenter-0.2.17-macOS-en-release-evidence.zip
+0d82b8f752fa089bde4ec63c91a5181291d575cb70c7daf7367ade093c85ac93  CanvasLearningCenter-0.2.17-macOS-universal-en-UNSIGNED-CANARY.pkg
+a3566182130bec448bb5799f0b10b3cac5ea8b84dd6eb1b0b2b2c999eeb5d8ac  CanvasLearningCenter-0.2.17-macOS-universal-zh-CN-UNSIGNED-CANARY.pkg
+d85a0aa988c22fddf225421da1bdf339fb155276ef32bf1612841b293a3094d5  CanvasLearningCenter-0.2.17-macOS-zh-CN-release-evidence.zip
+315e7a0ec7516ba527f3760f7cba34e60dad03e02231722780c7b6fda4518c68  INSTALLATION.txt
+5be8d9671b94da58e11385f32a32b73945074086478c30436b253938c9a0d56a  update-manifest-v2.json
