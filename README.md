@@ -22,7 +22,7 @@ and layout are not the current release interface. No student account data is sho
 
 ## Download
 
-Current public release: **0.2.17 — 8 September 2026**
+Current public release: **0.2.18 — 11 September 2026**
 
 Choose the package whose first-launch language you prefer. Both editions have
 the same features and can switch language at any time using the language button
@@ -30,33 +30,33 @@ in the top-right corner.
 
 | Platform | First-launch language | Download |
 |---|---|---|
-| macOS 13+ (Apple Silicon and Intel) | English | [Download macOS English](https://github.com/z-hstudio/canvas-learning-center/releases/download/v0.2.17/CanvasLearningCenter-0.2.17-macOS-universal-en-UNSIGNED-CANARY.pkg) |
-| macOS 13+ (Apple Silicon and Intel) | Chinese | [Download macOS Chinese](https://github.com/z-hstudio/canvas-learning-center/releases/download/v0.2.17/CanvasLearningCenter-0.2.17-macOS-universal-zh-CN-UNSIGNED-CANARY.pkg) |
-| Windows 11 x64 | English | [Download Windows English](https://github.com/z-hstudio/canvas-learning-center/releases/download/v0.2.17/CanvasLearningCenter-0.2.17-Windows-x64-en-UNSIGNED-CANARY.msi) |
-| Windows 11 x64 | Chinese | [Download Windows Chinese](https://github.com/z-hstudio/canvas-learning-center/releases/download/v0.2.17/CanvasLearningCenter-0.2.17-Windows-x64-zh-CN-UNSIGNED-CANARY.msi) |
+| macOS 13+ (Apple Silicon and Intel) | English | [Download macOS English](https://github.com/z-hstudio/canvas-learning-center/releases/download/v0.2.18/CanvasLearningCenter-0.2.18-macOS-universal-en-UNSIGNED-CANARY.pkg) |
+| macOS 13+ (Apple Silicon and Intel) | Chinese | [Download macOS Chinese](https://github.com/z-hstudio/canvas-learning-center/releases/download/v0.2.18/CanvasLearningCenter-0.2.18-macOS-universal-zh-CN-UNSIGNED-CANARY.pkg) |
+| Windows 11 x64 | English | [Download Windows English](https://github.com/z-hstudio/canvas-learning-center/releases/download/v0.2.18/CanvasLearningCenter-0.2.18-Windows-x64-en-UNSIGNED-CANARY.msi) |
+| Windows 11 x64 | Chinese | [Download Windows Chinese](https://github.com/z-hstudio/canvas-learning-center/releases/download/v0.2.18/CanvasLearningCenter-0.2.18-Windows-x64-zh-CN-UNSIGNED-CANARY.msi) |
 
-[View the complete v0.2.17 release](https://github.com/z-hstudio/canvas-learning-center/releases/tag/v0.2.17)
+[View the complete v0.2.18 release](https://github.com/z-hstudio/canvas-learning-center/releases/tag/v0.2.18)
 · [Installation guide](docs/INSTALLATION.md)
-· [SHA-256 checksums](https://github.com/z-hstudio/canvas-learning-center/releases/download/v0.2.17/SHA256SUMS.txt)
+· [SHA-256 checksums](https://github.com/z-hstudio/canvas-learning-center/releases/download/v0.2.18/SHA256SUMS.txt)
 
-> **Unsigned package warning:** all 0.2.17 installers are explicitly marked
+> **Unsigned package warning:** all 0.2.18 installers are explicitly marked
 > `UNSIGNED-CANARY`. They are not yet signed or notarized by Apple or Microsoft,
 > so Gatekeeper or SmartScreen may show a warning or block installation. Read
 > the installation guide and verify the checksum before continuing.
 
 ## Start here
 
-### New in 0.2.17
+### New in 0.2.18
 
-Course directories load before large material downloads. This update also fixes
-stale details after switching courses, restores module-linked external resources,
-and prevents Windows background task queries from creating console windows.
-All five courses in an authorized UTS check displayed their 34 modules locally.
-See the [release notes and verification limits](docs/RELEASE_NOTES_0.2.17.md).
+Ignore an assignment to remove it from desktop priorities and future reminders,
+or resume reminders from the Ignored filter. Deadlines other than local 23:59
+now stand out with a red label, exact time and timezone. Submitted and ignored
+items use a muted style. Both features support English and Chinese.
+See the [release notes and verification limits](docs/RELEASE_NOTES_0.2.18.md).
 
 ### Install and connect
 
-1. Open the [v0.2.17 Releases page](https://github.com/z-hstudio/canvas-learning-center/releases/tag/v0.2.17).
+1. Open the [v0.2.18 Releases page](https://github.com/z-hstudio/canvas-learning-center/releases/tag/v0.2.18).
 2. Download the installer for your operating system and preferred first-launch language.
 3. Follow the [macOS or Windows installation steps](docs/INSTALLATION.md).
 4. Sign in to your own institution's Canvas website and create your own Access Token.
@@ -77,7 +77,12 @@ For the full token walkthrough, read [Create and protect your Canvas Access Toke
 
 - **Assignment Guard** separates submitted, upcoming, at-risk, and manual-check items
 - Direct links open the official Canvas page for final confirmation or submission
+- Ignore or resume desktop reminders without changing the real submission status
+- Exact-time warnings highlight deadlines other than 23:59 in your institution's timezone
 - The app never submits work on your behalf
+
+Ignore is desktop-only: it does not sync to the WeChat companion or withdraw
+already delivered reminders. Registration and email notifications are not enabled.
 
 ### See what you have learned — and what is still weak
 

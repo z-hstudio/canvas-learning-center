@@ -2,7 +2,7 @@
 
 ## Unsigned packages
 
-Version 0.2.17 is an `UNSIGNED-CANARY`. The macOS package is not Apple-notarized,
+Version 0.2.18 is an `UNSIGNED-CANARY`. The macOS package is not Apple-notarized,
 and the Windows MSI does not have a trusted Microsoft code-signing identity.
 Gatekeeper or SmartScreen may warn or block it.
 
