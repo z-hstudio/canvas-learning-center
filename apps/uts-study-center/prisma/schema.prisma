@@ -1,0 +1,194 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model UserPreference {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String
+  updatedAt DateTime @updatedAt
+}
+
+model Subject {
+  id              String              @id @default(cuid())
+  provider        String
+  externalId      String
+  code            String
+  name            String
+  color           String?
+  current         Boolean             @default(true)
+  progress        Int                 @default(0)
+  currentScore    Float?
+  finalScore      Float?
+  sourceUrl       String?
+  updatedAt       DateTime            @updatedAt
+  assessments     Assessment[]
+  announcements   AnnouncementCache[]
+  modules         ModuleCache[]
+  files           CourseFileCache[]
+  studyTopics     StudyTopic[]
+  timetableEvents TimetableEvent[]
+
+  @@unique([provider, externalId])
+  @@index([code])
+}
+
+model CourseFileCache {
+  id          String   @id @default(cuid())
+  provider    String
+  externalId  String
+  subjectId   String
+  name        String
+  url         String?
+  contentType String?
+  size        Int?
+  updatedAt   DateTime?
+  subject     Subject  @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, externalId])
+  @@index([subjectId, name])
+}
+
+model Assessment {
+  id              String              @id @default(cuid())
+  provider        String
+  externalId      String
+  subjectId       String
+  title           String
+  description     String?
+  dueAt           DateTime?
+  points          Float?
+  weighting       Float?
+  officialStatus  String
+  submissionState String?
+  htmlUrl         String?
+  sourceUpdatedAt DateTime?
+  subject         Subject             @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  progress        AssessmentProgress?
+
+  @@unique([provider, externalId])
+  @@index([subjectId, dueAt])
+}
+
+model AssessmentProgress {
+  id             String     @id @default(cuid())
+  assessmentId   String     @unique
+  workflowStatus String     @default("NOT_STARTED")
+  completion     Int        @default(0)
+  notes          String     @default("")
+  pinned         Boolean    @default(false)
+  updatedAt      DateTime   @updatedAt
+  assessment     Assessment @relation(fields: [assessmentId], references: [id], onDelete: Cascade)
+}
+
+model AnnouncementCache {
+  id          String   @id @default(cuid())
+  provider    String
+  externalId  String
+  subjectId   String
+  title       String
+  message     String
+  publishedAt DateTime
+  htmlUrl     String?
+  unread      Boolean  @default(true)
+  subject     Subject  @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, externalId])
+  @@index([subjectId, publishedAt])
+}
+
+model ModuleCache {
+  id         String  @id @default(cuid())
+  provider   String
+  externalId String
+  subjectId  String
+  name       String
+  position   Int
+  state      String
+  itemsJson  String  @default("[]")
+  subject    Subject @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, externalId])
+  @@index([subjectId, position])
+}
+
+model TimetableEvent {
+  id          String   @id @default(cuid())
+  fingerprint String   @unique
+  provider    String
+  externalId  String?
+  subjectId   String?
+  title       String
+  subjectCode String?
+  location    String?
+  startAt     DateTime
+  endAt       DateTime
+  eventType   String
+  source      String
+  subject     Subject? @relation(fields: [subjectId], references: [id], onDelete: SetNull)
+
+  @@index([startAt, endAt])
+  @@index([subjectCode])
+}
+
+model StudyTopic {
+  id           String    @id @default(cuid())
+  subjectId    String
+  title        String
+  confidence   Int       @default(1)
+  completion   Int       @default(0)
+  notes        String    @default("")
+  lastReviewed DateTime?
+  nextReviewAt DateTime?
+  userCreated  Boolean   @default(false)
+  subject      Subject   @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+
+  @@index([subjectId, nextReviewAt])
+}
+
+model StudyNote {
+  id        String   @id @default(cuid())
+  subjectId String?
+  topicId   String?
+  body      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SyncState {
+  id               String    @id @default(cuid())
+  provider         String
+  entityType       String
+  state            String
+  lastAttemptedAt  DateTime?
+  lastSuccessfulAt DateTime?
+  errorCode        String?
+  errorMessage     String?
+
+  @@unique([provider, entityType])
+}
+
+model AISummary {
+  id                String   @id @default(cuid())
+  sourceEntityType  String
+  sourceEntityId    String
+  sourceContentHash String
+  outputLocale      String
+  promptVersion     String
+  model             String
+  contentJson       String
+  createdAt         DateTime @default(now())
+
+  @@unique([sourceEntityType, sourceEntityId, sourceContentHash, outputLocale, promptVersion, model])
+  @@index([sourceEntityType, sourceEntityId])
+}

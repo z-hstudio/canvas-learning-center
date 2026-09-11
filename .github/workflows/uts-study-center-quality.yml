@@ -1,0 +1,35 @@
+name: UTS Study Center quality gates
+
+on:
+  pull_request:
+    paths:
+      - "apps/uts-study-center/**"
+      - ".github/workflows/uts-study-center-quality.yml"
+  push:
+    paths:
+      - "apps/uts-study-center/**"
+      - ".github/workflows/uts-study-center-quality.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: apps/uts-study-center
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/uts-study-center/package-lock.json
+      - run: npm ci
+      - run: npm run db:generate
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run test
+      - run: npm run build
