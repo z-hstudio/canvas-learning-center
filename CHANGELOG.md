@@ -3,34 +3,6 @@
 This file is generated from the same bilingual release history shown inside
 Canvas Learning Center. Do not edit it by hand.
 
-## 0.2.18 — 2026-09-11
-
-### Assignment ignore and unusual deadline warnings
-
-Ignore assignments or resume their reminders. Deadlines other than local 23:59 receive a prominent exact-time warning.
-
-#### Added
-
-- Ignore, resume reminders and an Ignored filter, with preferences retained across syncs.
-- Prominent exact-time and timezone warnings for deadlines other than 23:59 in assignments and Today actions.
-
-#### Changed
-
-- Ignored assignments leave desktop priorities, attention counts and future reminder events.
-- Deadline warnings use the active institution profile timezone; submitted or ignored items use a muted style.
-
-#### Security
-
-- Ignore changes local preferences only, never Canvas submission state. Installation remains manual; registration and email notifications are not enabled.
-
-#### Known issues
-
-- Installers are unsigned and not notarized.
-- Ignore is desktop-only: it does not sync to the WeChat companion or recall already delivered reminders.
-- Clean installation and upgrade on native Windows 11 and Intel Mac devices still require acceptance testing.
-
-[View GitHub Release](https://github.com/z-hstudio/canvas-learning-center/releases/tag/v0.2.18)
-
 ## 0.2.17 — 2026-09-08
 
 ### Faster course navigation and quieter Windows background tasks
